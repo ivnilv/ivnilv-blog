@@ -1,0 +1,13 @@
+baseURL = "http://ivnilv.github.io/"
+languageCode = "en-us"
+title = "ivnilv blog"
+theme = "hugo-ink"
+
+pygmentsstyle = "solarized-dark"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+summaryLength = 1
+
+[params]
+    mode = "auto"
