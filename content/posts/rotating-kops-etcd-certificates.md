@@ -56,7 +56,7 @@ This needs to be done on all Kubernetes master nodes/etcd pods.
 
 #### *Fix not working Prometheus monitoring after cert rotation*
 
-Prometheus Operator relies on a predefined secret containing etcd client certificates, key and etcd CA cert. It's pre-configured [here](https://git.axs-offices.com/sysadmin/k8s-helm-installed/k8s-helm-installed-preprod/-/blob/master/axs-prometheus-operator/values.yaml#L1634). However this secret is not updated automatically with the newly generated certs by the `etcd-manager` and needs to be done manually.
+Prometheus Operator relies on a predefined secret containing etcd client certificates, key and etcd CA cert. It's pre-configured [here](https://github.com/prometheus-community/helm-charts/blob/f1729dcfd2040660d4f3dcbe3b2f797415990711/charts/kube-prometheus-stack/values.yaml#L1635). However this secret is not updated automatically with the newly generated certs by the `etcd-manager` and needs to be done manually.
 
 The easiest way for this is to ssh into one of the Kubernetes master nodes and run the following command, but first you need to delete the old secret containing the old etcd client certs:
 

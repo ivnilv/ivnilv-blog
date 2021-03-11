@@ -1,7 +1,8 @@
-baseURL = "http://ivnilv.github.io/"
+baseURL = "https://blog.ivnilv.com/"
 languageCode = "en-us"
 title = "ivnilv blog"
 theme = "hugo-ink"
+googleAnalytics = "UA-186301477-1"
 
 pygmentsstyle = "solarized-dark"
 pygmentscodefences = true
