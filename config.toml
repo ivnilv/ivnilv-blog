@@ -1,61 +1,72 @@
-baseURL = "https://blog.ivnilv.com/"
+baseurl = "/"
 languageCode = "en-us"
-title = "ivnilv blog"
-theme = "hugo-ink"
-googleAnalytics = "UA-186301477-1"
-
-pygmentsstyle = "solarized-dark"
-pygmentscodefences = true
-pygmentscodefencesguesssyntax = true
-
-disqusShortname = "blog-ivnilv-com"
-summaryLength = 10
+theme = "terminal"
+paginate = 5
 
 [params]
-    mode = "auto"
+  # dir name of your main content (default is `content/posts`).
+  # the list of set content will show up on your index page (baseurl).
+  contentTypeName = "posts"
 
+  # ["orange", "blue", "red", "green", "pink"]
+  themeColor = "orange"
 
-[[menu.main]]
-name = "Home"
-url = "/"
-weight = 1
+  # if you set this to 0, only submenu trigger will be visible
+  showMenuItems = 2
 
-[[menu.main]]
-name = "All posts"
-url = "/posts"
-weight = 2
+  # show selector to switch language
+  showLanguageSelector = false
 
-[[menu.main]]
-name = "Kubernetes"
-url = "/tags/kubernetes"
-weight = 3
+  # set theme to full screen width
+  fullWidthTheme = false
 
-[[menu.main]]
-name = "Linux"
-url = "/tags/linux"
-weight = 4
+  # center theme with default width
+  centerTheme = true
 
-[[menu.main]]
-name = "About"
-url = "/about"
-weight = 5
+  # set a custom favicon (default is a `themeColor` square)
+  # favicon = "favicon.ico"
 
-[[menu.main]]
-name = "Tags"
-url = "/tags"
-weight = 6
+  # set post to show the last updated
+  # If you use git, you can set `enableGitInfo` to `true` and then post will automatically get the last updated
+  showLastUpdated = false
+  # Provide a string as a prefix for the last update date. By default, it looks like this: 2020-xx-xx [Updated: 2020-xx-xx] :: Author
+  # updatedDatePrefix = "Updated"
 
-[[params.social]]
-name = "Github"
-icon = "github"
-url = "https://github.com/ivnilv/"
+  # set all headings to their default size (depending on browser settings)
+  # it's set to `true` by default
+  # oneHeadingSize = false
 
-[[params.social]]
-name = "Twitter"
-icon = "twitter"
-url = "https://twitter.com/ivnilv"
+[params.twitter]
+  # set Twitter handles for Twitter cards
+  # see https://developer.twitter.com/en/docs/tweets/optimize-with-cards/guides/getting-started#card-and-content-attribution
+  # do not include @
+  creator = ""
+  site = ""
 
-# Enable tags.
-[taxonomies]
-   tag = "tags"
+[languages]
+  [languages.en]
+    languageName = "English"
+    title = "Terminal"
+    subtitle = "A simple, retro theme for Hugo"
+    owner = ""
+    keywords = ""
+    copyright = ""
+    menuMore = "Show more"
+    readMore = "Read more"
+    readOtherPosts = "Read other posts"
+    missingContentMessage = "Page not found..."
+    missingBackButtonLabel = "Back to home page"
 
+    [languages.en.params.logo]
+      logoText = "ivnilv@blog:~$ "
+      logoHomeLink = "/"
+
+    [languages.en.menu]
+      [[languages.en.menu.main]]
+        identifier = "about"
+        name = "About"
+        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "showcase"
+        name = "Showcase"
+        url = "/showcase"
