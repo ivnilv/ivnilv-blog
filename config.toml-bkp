@@ -1,0 +1,61 @@
+baseURL = "https://blog.ivnilv.com/"
+languageCode = "en-us"
+title = "ivnilv blog"
+theme = "hugo-ink"
+googleAnalytics = "UA-186301477-1"
+
+pygmentsstyle = "solarized-dark"
+pygmentscodefences = true
+pygmentscodefencesguesssyntax = true
+
+disqusShortname = "blog-ivnilv-com"
+summaryLength = 10
+
+[params]
+    mode = "auto"
+
+
+[[menu.main]]
+name = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "All posts"
+url = "/posts"
+weight = 2
+
+[[menu.main]]
+name = "Kubernetes"
+url = "/tags/kubernetes"
+weight = 3
+
+[[menu.main]]
+name = "Linux"
+url = "/tags/linux"
+weight = 4
+
+[[menu.main]]
+name = "About"
+url = "/about"
+weight = 5
+
+[[menu.main]]
+name = "Tags"
+url = "/tags"
+weight = 6
+
+[[params.social]]
+name = "Github"
+icon = "github"
+url = "https://github.com/ivnilv/"
+
+[[params.social]]
+name = "Twitter"
+icon = "twitter"
+url = "https://twitter.com/ivnilv"
+
+# Enable tags.
+[taxonomies]
+   tag = "tags"
+

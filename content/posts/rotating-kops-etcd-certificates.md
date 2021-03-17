@@ -2,10 +2,14 @@
 title: "Rotating Kops Etcd Certificates"
 date: 2020-12-08T18:27:01+02:00
 draft: false
+tags:
+- Kubernetes
+- Kops
+- AWS
+- etcd
 ---
-### *Rotating kOps etcd certificates*
 
-<sup>*Updated 8 Dec 2020*</sup>
+Reading time: 5 min
 
 ---
 
@@ -14,7 +18,7 @@ draft: false
 Using kubectl:
 
 ```
-$ k -n kube-system get pod etcd-manager-main-ip-172-20-115-29.eu-central-1.compute.internal -o yaml | grep "image\:"
+$ k -n kube-system get pod etcd-manager-main-ip-NODE-IP-ADDRESS -o yaml | grep "image\:"
     image: kopeio/etcd-manager:3.0.20200429
 ```
 
@@ -35,16 +39,16 @@ If it finds that the certificates are expiring in 60 days or less, it will regen
 ```
 etcd-manager
 ...
-I1208 08:37:56.019184   12806 main.go:299] Setting data dir to /rootfs/mnt/master-vol-05229c33cdd57f157
+I1208 08:37:56.019184   12806 main.go:299] Setting data dir to /rootfs/mnt/master-vol-ID
 I1208 08:37:56.019648   12806 certs.go:106] existing certificate not valid after 2022-12-08T08:37:05Z; will regenerate
 I1208 08:37:56.019655   12806 certs.go:167] generating certificate for "etcd-manager-server-etcd-c"
 I1208 08:37:56.023307   12806 certs.go:106] existing certificate not valid after 2022-12-08T08:37:05Z; will regenerate
 I1208 08:37:56.023350   12806 certs.go:167] generating certificate for "etcd-manager-client-etcd-c"
 ...
-I1208 08:37:56.032081   12806 pki.go:39] generating peer keypair for etcd: {CommonName:etcd-c Organization:[] AltNames:{DNSNames:[etcd-c.internal.preprod-kubernetes.k8s.local] IPs:[127.0.0.1]} Usages:[2 1]}
+I1208 08:37:56.032081   12806 pki.go:39] generating peer keypair for etcd: {CommonName:etcd-c Organization:[] AltNames:{DNSNames:[etcd-c.internal.clstrname.k8s.local] IPs:[127.0.0.1]} Usages:[2 1]}
 I1208 08:37:56.032340   12806 certs.go:106] existing certificate not valid after 2022-12-08T08:37:05Z; will regenerate
 I1208 08:37:56.032346   12806 certs.go:167] generating certificate for "etcd-c"
-I1208 08:37:56.041521   12806 pki.go:79] building client-serving certificate: {CommonName:etcd-c Organization:[] AltNames:{DNSNames:[etcd-c.internal.preprod-kubernetes.k8s.local etcd-c.internal.preprod-kubernetes.k8s.local] IPs:[127.0.0.1 127.0.0.1]} Usages:[1 2]}
+I1208 08:37:56.041521   12806 pki.go:79] building client-serving certificate: {CommonName:etcd-c Organization:[] AltNames:{DNSNames:[etcd-c.internal.clstrname.k8s.local etcd-c.internal.clstrname.k8s.local] IPs:[127.0.0.1 127.0.0.1]} Usages:[1 2]}
 I1208 08:37:56.041786   12806 certs.go:106] existing certificate not valid after 2022-12-08T08:37:05Z; will regenerate
 I1208 08:37:56.041795   12806 certs.go:167] generating certificate for "etcd-c"
 I1208 08:37:56.499683   12806 certs.go:167] generating certificate for "etcd-manager-etcd-c"
@@ -61,11 +65,11 @@ Prometheus Operator relies on a predefined secret containing etcd client certifi
 The easiest way for this is to ssh into one of the Kubernetes master nodes and run the following command, but first you need to delete the old secret containing the old etcd client certs:
 
 ```
-$ kubectl -n axs-monitoring delete secret etcd-certs
+$ kubectl -n monitoring delete secret etcd-certs
 ```
 Next, recreate the secret but this time including the newly generated certificates:
 ```
-$ kubectl -n axs-monitoring create secret generic etcd-certs --from-file=ca.crt=/etc/kubernetes/pki/kube-apiserver/etcd-ca.crt --from-file=client.crt=/etc/kubernetes/pki/kube-apiserver/etcd-client.crt --from-file=client.key=/etc/kubernetes/pki/kube-apiserver/etcd-client.key
+$ kubectl -n monitoring create secret generic etcd-certs --from-file=ca.crt=/etc/kubernetes/pki/kube-apiserver/etcd-ca.crt --from-file=client.crt=/etc/kubernetes/pki/kube-apiserver/etcd-client.crt --from-file=client.key=/etc/kubernetes/pki/kube-apiserver/etcd-client.key
 ```
 <sup>* *replace namespace and secret name accordingly*</sup>
 
