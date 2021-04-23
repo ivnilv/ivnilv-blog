@@ -9,18 +9,15 @@ tags:
 - etcd
 ---
 
-Reading time: 5 min
-
----
 
 #### *Check etcd-manager version*
 
 Using kubectl:
 
-```
+{{< highlight bash >}}
 $ k -n kube-system get pod etcd-manager-main-ip-NODE-IP-ADDRESS -o yaml | grep "image\:"
     image: kopeio/etcd-manager:3.0.20200429
-```
+{{< / highlight >}}
 
 According to the [releases documentation](https://github.com/kopeio/etcd-manager/releases) version 3.0.20200428 brings a fix that renews expiring certificates in the cluster.
 
@@ -36,7 +33,7 @@ When the restarted instance comes back up it will start the `etcd-main` and `etc
 
 If it finds that the certificates are expiring in 60 days or less, it will regenerate them. You should see the following output in the logs for the `etcd-main` and `etcd-events` pods:
 
-```
+{{< highlight bash >}}
 etcd-manager
 ...
 I1208 08:37:56.019184   12806 main.go:299] Setting data dir to /rootfs/mnt/master-vol-ID
@@ -54,7 +51,7 @@ I1208 08:37:56.041795   12806 certs.go:167] generating certificate for "etcd-c"
 I1208 08:37:56.499683   12806 certs.go:167] generating certificate for "etcd-manager-etcd-c"
 ...
 I1208 08:37:56.753268   12806 certs.go:167] generating certificate for "etcd-c"
-```
+{{< / highlight >}}
 
 This needs to be done on all Kubernetes master nodes/etcd pods.
 
@@ -64,13 +61,16 @@ Prometheus Operator relies on a predefined secret containing etcd client certifi
 
 The easiest way for this is to ssh into one of the Kubernetes master nodes and run the following command, but first you need to delete the old secret containing the old etcd client certs:
 
-```
+{{< highlight bash >}}
 $ kubectl -n monitoring delete secret etcd-certs
-```
+{{< / highlight >}}
+
 Next, recreate the secret but this time including the newly generated certificates:
-```
+
+{{< highlight bash >}}
 $ kubectl -n monitoring create secret generic etcd-certs --from-file=ca.crt=/etc/kubernetes/pki/kube-apiserver/etcd-ca.crt --from-file=client.crt=/etc/kubernetes/pki/kube-apiserver/etcd-client.crt --from-file=client.key=/etc/kubernetes/pki/kube-apiserver/etcd-client.key
-```
+{{< / highlight >}}
+
 <sup>* *replace namespace and secret name accordingly*</sup>
 
 The only thing left is to restart the Prometheus pod so that it mounts the newly created secret containing your renewed etcd client certificates.

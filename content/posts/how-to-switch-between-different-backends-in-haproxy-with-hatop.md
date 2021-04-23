@@ -2,6 +2,7 @@
 title: "How to Switch Between Different Backends in Haproxy Using Hatop"
 date: 2021-03-14T13:37:34+02:00
 draft: false
+cover: "/images/haproxy-nginx-scheme.png"
 tags:
 - Linux
 - haproxy
@@ -15,7 +16,7 @@ This would be useful, for example when you would like to upgrade the version of 
 
 Here is the minimal `haproxy.cfg` configuration file we are going to use for this guide:
 
-```
+{{< highlight bash >}}
 backend bk_app # define a backend for the app containing a list of backend servers
   server nginx1 127.0.0.1:81 check backup    # this server is backup and does not serve clients
   server nginx2 127.0.0.1:82 check 
@@ -23,7 +24,7 @@ backend bk_app # define a backend for the app containing a list of backend serve
 frontend app                          # define what port to listed to for HAProxy
   bind :80
   default_backend bk_app                  # set the default server for all request
-``` 
+{{< / highlight >}}
 
 ![haproxy-nginx-scheme](/images/haproxy-nginx-scheme.png)
 
@@ -35,9 +36,10 @@ As you can see, hitting port 80 will always get served by the older 1.18.0 insta
 
 Now in order to switch the clients to the backend server running the latest version, you will need to find the haproxy admin socket (it's usually configured in `/etc/haproxy/haproxy.cfg`) and start the `hatop` utility. An example command would look like:
 
-```
+{{< highlight bash >}}
 root@ivnilv-vm-mobile:~# hatop -s /run/haproxy/admin.sock
-```
+{{< / highlight >}}
+
 This should lead you to the HAtop interface which should look something like:
 
 ![hatop-ui](/images/hatop1.png)

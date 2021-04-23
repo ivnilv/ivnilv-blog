@@ -3,6 +3,9 @@ languageCode = "en-us"
 theme = "terminal"
 paginate = 5
 
+googleAnalytics = "UA-186301477-1"
+disqusShortname = "blog-ivnilv-com"
+
 [params]
   # dir name of your main content (default is `content/posts`).
   # the list of set content will show up on your index page (baseurl).
@@ -12,7 +15,7 @@ paginate = 5
   themeColor = "orange"
 
   # if you set this to 0, only submenu trigger will be visible
-  showMenuItems = 2
+  showMenuItems = 5
 
   # show selector to switch language
   showLanguageSelector = false
@@ -46,12 +49,12 @@ paginate = 5
 [languages]
   [languages.en]
     languageName = "English"
-    title = "Terminal"
-    subtitle = "A simple, retro theme for Hugo"
+    title = "Ivan Iliev's Blog"
+    subtitle = "Linux and other tech"
     owner = ""
     keywords = ""
     copyright = ""
-    menuMore = "Show more"
+    menuMore = "Tools"
     readMore = "Read more"
     readOtherPosts = "Read other posts"
     missingContentMessage = "Page not found..."
@@ -63,10 +66,37 @@ paginate = 5
 
     [languages.en.menu]
       [[languages.en.menu.main]]
+        identifier = "home"
+        name = "Home"
+        url = "/"
+        weight = 1
+#      [[languages.en.menu.main]]
+#        identifier = "about"
+#        name = "About"
+#        url = "/about"
+      [[languages.en.menu.main]]
+        identifier = "kubernetes"
+        name = "Kubernetes"
+        url = "/tags/kubernetes"
+        weight = 2
+      [[languages.en.menu.main]]
+        identifier = "linux"
+        name = "Linux"
+        url = "/tags/linux"
+        weight = 3
+      [[languages.en.menu.main]]
+        identifier = "tags"
+        name = "Tags"
+        url = "/tags"
+        weight = 4
+      [[languages.en.menu.main]]
         identifier = "about"
         name = "About"
         url = "/about"
+        weight = 5
       [[languages.en.menu.main]]
-        identifier = "showcase"
-        name = "Showcase"
-        url = "/showcase"
+        identifier = "sacc"
+        name = "sacc"
+        url = "/tools/sacc"
+        weight = 6
+
