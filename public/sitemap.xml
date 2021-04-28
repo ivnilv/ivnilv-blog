@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2021-03-18T19:39:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tools/sacc/</loc>
+    <lastmod>2021-03-18T19:39:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tools/</loc>
+    <lastmod>2021-03-18T19:39:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/how-to-create-new-kubernetes-user-accounts/</loc>
+    <lastmod>2021-03-15T00:26:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/kubernetes/</loc>
+    <lastmod>2021-03-15T00:26:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2021-03-15T00:26:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2021-03-15T00:26:43+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/haproxy/</loc>
+    <lastmod>2021-03-14T13:37:34+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hatop/</loc>
+    <lastmod>2021-03-14T13:37:34+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/how-to-switch-between-different-backends-in-haproxy-with-hatop/</loc>
+    <lastmod>2021-03-14T13:37:34+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2021-03-14T13:37:34+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/loadbalancing/</loc>
+    <lastmod>2021-03-14T13:37:34+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/certbot/</loc>
+    <lastmod>2021-03-11T16:22:58+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/letsencrypt/</loc>
+    <lastmod>2021-03-11T16:22:58+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/nginx/</loc>
+    <lastmod>2021-03-11T16:22:58+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/using-certbot-letsencrypt-with-nginx/</loc>
+    <lastmod>2021-03-11T16:22:58+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/aws/</loc>
+    <lastmod>2020-12-08T18:27:01+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/etcd/</loc>
+    <lastmod>2020-12-08T18:27:01+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/kops/</loc>
+    <lastmod>2020-12-08T18:27:01+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/rotating-kops-etcd-certificates/</loc>
+    <lastmod>2020-12-08T18:27:01+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+</urlset>

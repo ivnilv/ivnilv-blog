@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hatop on Ivan Iliev&#39;s Blog</title>
+    <link>/tags/hatop/</link>
+    <description>Recent content in hatop on Ivan Iliev&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 14 Mar 2021 13:37:34 +0200</lastBuildDate><atom:link href="/tags/hatop/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Switch Between Different Backends in Haproxy Using Hatop</title>
+      <link>/posts/how-to-switch-between-different-backends-in-haproxy-with-hatop/</link>
+      <pubDate>Sun, 14 Mar 2021 13:37:34 +0200</pubDate>
+      
+      <guid>/posts/how-to-switch-between-different-backends-in-haproxy-with-hatop/</guid>
+      <description>Let&amp;rsquo;s assume the following setup where we have a HAproxy frontend accepting incoming requests for an app in port 80, and then forwarding those requests to the application&amp;rsquo;s backend servers (nginx web instances).
+This would be useful, for example when you would like to upgrade the version of nginx servers hosting your web application&amp;rsquo;s code to the latest version of nginx with zero downtime !
+Here is the minimal haproxy.cfg configuration file we are going to use for this guide:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on Ivan Iliev&#39;s Blog</title>
+    <link>/tools/</link>
+    <description>Recent content in Tools on Ivan Iliev&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Mar 2021 19:39:28 +0200</lastBuildDate><atom:link href="/tools/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SACC - Smart AWS Cli Config</title>
+      <link>/tools/sacc/</link>
+      <pubDate>Thu, 18 Mar 2021 19:39:28 +0200</pubDate>
+      
+      <guid>/tools/sacc/</guid>
+      <description>Smart AWS Cli Config - ~/.aws/credentials generator for lazy devs
+project homepage: https://blog.ivnilv.com/tools/sacc/
+project source code: https://github.com/ivnilv/sacc/
+ sacc is a tool built out of the necessity to get new AWS session tokens every 36 (maximum) hours.
+The tool will use your AWS access key and secret to request new session token from the AWS Security Token Service (AWS STS).
+Usage:
+Prerequisites:
+ You will need an existing AWS account MFA (Multi-factor authentication) device linked to your account AWS API Access key generated from your account  Requirements:</description>
+    </item>
+    
+  </channel>
+</rss>

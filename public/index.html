@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.78.1" />
+  
+    <title>Ivan Iliev&#39;s Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Linux and other tech" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-186301477-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="/img/favicon/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Ivan Iliev&#39;s Blog">
+<meta property="og:description" content="Linux and other tech" />
+<meta property="og:url" content="/" />
+<meta property="og:site_name" content="Ivan Iliev&#39;s Blog" />
+
+  
+    <meta property="og:image" content="/img/favicon/orange.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+
+
+
+  <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Ivan Iliev&#39;s Blog" />
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    ivnilv@blog:~$ 
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/">Home</a></li>
+        
+      
+        
+          <li><a href="/tags/kubernetes">Kubernetes</a></li>
+        
+      
+        
+          <li><a href="/tags/linux">Linux</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">Tools ▾</li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/tools/sacc">sacc</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/">Home</a></li>
+      
+    
+      
+        <li><a href="/tags/kubernetes">Kubernetes</a></li>
+      
+    
+      
+        <li><a href="/tags/linux">Linux</a></li>
+      
+    
+      
+        <li><a href="/tags">Tags</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/tools/sacc">sacc</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+
+
+
+<script async src="https://cdn.panelbear.com/analytics.js?site=5IchX3KrIAX"></script>
+<script>
+    window.panelbear = window.panelbear || function() { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
+    panelbear('config', { site: '5IchX3KrIAX' });
+</script>
+<script async src="https://ackee.ivnilv.com/ivnilvackee.js" data-ackee-server="https://ackee.ivnilv.com/" data-ackee-domain-id="cd467ada-5ac4-4479-9898-19bf9ccc0701"></script>
+
+</header>
+
+
+  <div class="content">
+    
+  
+  <div class="posts">
+    
+    
+
+    
+    
+      
+    
+    
+
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="/posts/how-to-create-new-kubernetes-user-accounts/">How to Create New Kubernetes User Accounts</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-03-15
+          </span>
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+            #<a href="/tags/kubernetes/">kubernetes</a>&nbsp;
+            
+          </span>
+        
+
+        
+          <img src="/images/k8s.png" class="post-cover" alt="How to Create New Kubernetes User Accounts" />
+        
+
+        <div class="post-content">
+          
+          
+          Generate new certificate First, we have to generate a private key:
+$ openssl genrsa -out ivnilv.pem and a certificate signing request:
+$ openssl req -new -key ivnilv.pem -out ivnilv.csr -subj &quot;/CN=ivnilv&quot; The common name of the certificate is important, since it defines the username of the new user.
+Signing the certificate The signing request needs to be base64 encoded , before submitting to the Kubernetes API. You can easily encode it using:
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/posts/how-to-create-new-kubernetes-user-accounts/">Read more →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="/posts/how-to-switch-between-different-backends-in-haproxy-with-hatop/">How to Switch Between Different Backends in Haproxy Using Hatop</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-03-14
+          </span>
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+            #<a href="/tags/linux/">Linux</a>&nbsp;
+            
+            #<a href="/tags/haproxy/">haproxy</a>&nbsp;
+            
+            #<a href="/tags/loadbalancing/">loadbalancing</a>&nbsp;
+            
+            #<a href="/tags/hatop/">hatop</a>&nbsp;
+            
+          </span>
+        
+
+        
+          <img src="/images/haproxy-nginx-scheme.png" class="post-cover" alt="How to Switch Between Different Backends in Haproxy Using Hatop" />
+        
+
+        <div class="post-content">
+          
+          
+          Let’s assume the following setup where we have a HAproxy frontend accepting incoming requests for an app in port 80, and then forwarding those requests to the application’s backend servers (nginx web instances).
+This would be useful, for example when you would like to upgrade the version of nginx servers hosting your web application’s code to the latest version of nginx with zero downtime !
+Here is the minimal haproxy.cfg configuration file we are going to use for this guide:
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/posts/how-to-switch-between-different-backends-in-haproxy-with-hatop/">Read more →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="/posts/using-certbot-letsencrypt-with-nginx/">Using Certbot Letsencrypt With Nginx</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2021-03-11
+          </span>
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+            #<a href="/tags/linux/">Linux</a>&nbsp;
+            
+            #<a href="/tags/certbot/">certbot</a>&nbsp;
+            
+            #<a href="/tags/nginx/">nginx</a>&nbsp;
+            
+            #<a href="/tags/letsencrypt/">letsencrypt</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          <p>Install CertBot Installing certbot in Ubuntu is pretty straight forward:</p>
+<h1 id="apt-get-install-certbot-generate-certificate-based-on-the-type-of-webserver-you-are-using-you-need-to-pass-a-different-parameter-to-the-certbot-in-order-for-it-to-properly-configure-your-virtual-host">apt-get install certbot Generate certificate Based on the type of webserver you are using, you need to pass a different parameter to the certbot in order for it to properly configure your virtual host.</h1>
+<p>In the case of nginx , it’s as simple as:</p>
+<h1 id="certbot---nginx-next-yoursquoll-need-to-answer-a-couple-of-questions-which-are-necessary-for-the-certificate-issuance">certbot &ndash;nginx Next, you’ll need to answer a couple of questions which are necessary for the certificate issuance.</h1>
+
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/posts/using-certbot-letsencrypt-with-nginx/">Read more →</a>
+        </div>
+        
+      </div>
+    
+      <div class="post on-list">
+        <h1 class="post-title">
+          <a href="/posts/rotating-kops-etcd-certificates/">Rotating Kops Etcd Certificates</a>
+        </h1>
+        <div class="post-meta">
+          <span class="post-date">
+            2020-12-08
+          </span>
+          
+        </div>
+
+        
+          <span class="post-tags">
+            
+            #<a href="/tags/kubernetes/">Kubernetes</a>&nbsp;
+            
+            #<a href="/tags/kops/">Kops</a>&nbsp;
+            
+            #<a href="/tags/aws/">AWS</a>&nbsp;
+            
+            #<a href="/tags/etcd/">etcd</a>&nbsp;
+            
+          </span>
+        
+
+        
+
+        <div class="post-content">
+          
+          
+          Check etcd-manager version Using kubectl:
+$ k -n kube-system get pod etcd-manager-main-ip-NODE-IP-ADDRESS -o yaml | grep &quot;image:&quot; image: kopeio/etcd-manager:3.0.20200429 According to the releases documentation version 3.0.20200428 brings a fix that renews expiring certificates in the cluster.
+However, the implementation of this as noted in github issue #309
+Not a perfect fix, if you don’t restart things every now and then, they could still expire. But it’s at least closer and means if you do restart things, it will fix itself.
+          
+          
+        </div>
+
+        
+        <div>
+          <a class="read-more button"
+            href="/posts/rotating-kops-etcd-certificates/">Read more →</a>
+        </div>
+        
+      </div>
+    
+    <div class="pagination">
+  <div class="pagination__buttons">
+    
+    
+  </div>
+</div>
+
+  </div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2021 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>

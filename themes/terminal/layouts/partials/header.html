@@ -1,0 +1,23 @@
+<header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      {{ partial "logo.html" . }}
+    </div>
+    {{ if len $.Site.Menus }}
+      <div class="menu-trigger">menu</div>
+    {{ end }}
+  </div>
+  {{ if len $.Site.Menus }}
+    {{ partial "menu.html" . }}
+  {{ end }}
+
+
+<!-- Panelbear Analytics - We respect your privacy -->
+<script async src="https://cdn.panelbear.com/analytics.js?site=5IchX3KrIAX"></script>
+<script>
+    window.panelbear = window.panelbear || function() { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
+    panelbear('config', { site: '5IchX3KrIAX' });
+</script>
+<script async src="https://ackee.ivnilv.com/ivnilvackee.js" data-ackee-server="https://ackee.ivnilv.com/" data-ackee-domain-id="cd467ada-5ac4-4479-9898-19bf9ccc0701"></script>
+
+</header>
