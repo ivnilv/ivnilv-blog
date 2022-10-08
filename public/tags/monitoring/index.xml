@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>monitoring on Ivan Iliev&#39;s Blog</title>
+    <link>/tags/monitoring/</link>
+    <description>Recent content in monitoring on Ivan Iliev&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 Apr 2021 20:24:43 +0300</lastBuildDate><atom:link href="/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install PHPServerMon on Ubuntu with PHP-FPM, nginx, MySQL</title>
+      <link>/posts/installing-phpservermon-on-ubuntu-with-php-nginx-mysql/</link>
+      <pubDate>Fri, 23 Apr 2021 20:24:43 +0300</pubDate>
+      
+      <guid>/posts/installing-phpservermon-on-ubuntu-with-php-nginx-mysql/</guid>
+      <description>Install requirements  Install git:  sudo apt install git -y  Install PHP 7.4  sudo apt-get install software-properties-common sudo add-apt-repository ppa:ondrej/php sudo apt-get update sudo apt-get install -y php7.4  Install NginX  sudo apt-get install nginx -y </description>
+    </item>
+    
+  </channel>
+</rss>

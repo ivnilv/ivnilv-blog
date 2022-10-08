@@ -6,7 +6,43 @@
     <description>Recent content in Tags on Ivan Iliev&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 15 Mar 2021 00:26:43 +0200</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 23 Apr 2021 20:24:43 +0300</lastBuildDate><atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>install</title>
+      <link>/tags/install/</link>
+      <pubDate>Fri, 23 Apr 2021 20:24:43 +0300</pubDate>
+      
+      <guid>/tags/install/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>/tags/linux/</link>
+      <pubDate>Fri, 23 Apr 2021 20:24:43 +0300</pubDate>
+      
+      <guid>/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monitoring</title>
+      <link>/tags/monitoring/</link>
+      <pubDate>Fri, 23 Apr 2021 20:24:43 +0300</pubDate>
+      
+      <guid>/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>phpservermon</title>
+      <link>/tags/phpservermon/</link>
+      <pubDate>Fri, 23 Apr 2021 20:24:43 +0300</pubDate>
+      
+      <guid>/tags/phpservermon/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>kubernetes</title>
       <link>/tags/kubernetes/</link>
@@ -31,15 +67,6 @@
       <pubDate>Sun, 14 Mar 2021 13:37:34 +0200</pubDate>
       
       <guid>/tags/hatop/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>/tags/linux/</link>
-      <pubDate>Sun, 14 Mar 2021 13:37:34 +0200</pubDate>
-      
-      <guid>/tags/linux/</guid>
       <description></description>
     </item>
     
