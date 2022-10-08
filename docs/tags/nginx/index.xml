@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx on Ivan Iliev&#39;s Blog</title>
+    <link>/tags/nginx/</link>
+    <description>Recent content in nginx on Ivan Iliev&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 11 Mar 2021 16:22:58 +0200</lastBuildDate><atom:link href="/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Certbot Letsencrypt With Nginx</title>
+      <link>/posts/using-certbot-letsencrypt-with-nginx/</link>
+      <pubDate>Thu, 11 Mar 2021 16:22:58 +0200</pubDate>
+      
+      <guid>/posts/using-certbot-letsencrypt-with-nginx/</guid>
+      <description>Install CertBot Installing certbot in Ubuntu is pretty straight forward:
+# apt-get install certbot Generate certificate Based on the type of webserver you are using, you need to pass a different parameter to the certbot in order for it to properly configure your virtual host.
+In the case of nginx , it&amp;rsquo;s as simple as:
+# certbot --nginx Next, you&amp;rsquo;ll need to answer a couple of questions which are necessary for the certificate issuance.</description>
+    </item>
+    
+  </channel>
+</rss>

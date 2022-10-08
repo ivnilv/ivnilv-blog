@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS on Ivan Iliev&#39;s Blog</title>
+    <link>/tags/aws/</link>
+    <description>Recent content in AWS on Ivan Iliev&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 08 Dec 2020 18:27:01 +0200</lastBuildDate><atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Rotating Kops Etcd Certificates</title>
+      <link>/posts/rotating-kops-etcd-certificates/</link>
+      <pubDate>Tue, 08 Dec 2020 18:27:01 +0200</pubDate>
+      
+      <guid>/posts/rotating-kops-etcd-certificates/</guid>
+      <description>Check etcd-manager version Using kubectl:
+$ k -n kube-system get pod etcd-manager-main-ip-NODE-IP-ADDRESS -o yaml | grep &amp;#34;image\:&amp;#34; image: kopeio/etcd-manager:3.0.20200429 According to the releases documentation version 3.0.20200428 brings a fix that renews expiring certificates in the cluster.
+However, the implementation of this as noted in github issue #309
+ Not a perfect fix, if you don&amp;rsquo;t restart things every now and then, they could still expire. But it&amp;rsquo;s at least closer and means if you do restart things, it will fix itself.</description>
+    </item>
+    
+  </channel>
+</rss>

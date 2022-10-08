@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ivan Iliev&#39;s Blog</title>
+    <link>/</link>
+    <description>Recent content on Ivan Iliev&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 23 Apr 2021 20:24:43 +0300</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install PHPServerMon on Ubuntu with PHP-FPM, nginx, MySQL</title>
+      <link>/posts/installing-phpservermon-on-ubuntu-with-php-nginx-mysql/</link>
+      <pubDate>Fri, 23 Apr 2021 20:24:43 +0300</pubDate>
+      
+      <guid>/posts/installing-phpservermon-on-ubuntu-with-php-nginx-mysql/</guid>
+      <description>Install requirements  Install git:  sudo apt install git -y  Install PHP 7.4  sudo apt-get install software-properties-common sudo add-apt-repository ppa:ondrej/php sudo apt-get update sudo apt-get install -y php7.4  Install NginX  sudo apt-get install nginx -y </description>
+    </item>
+    
+    <item>
+      <title>SACC - Smart AWS Cli Config</title>
+      <link>/tools/sacc/</link>
+      <pubDate>Thu, 18 Mar 2021 19:39:28 +0200</pubDate>
+      
+      <guid>/tools/sacc/</guid>
+      <description>Smart AWS Cli Config - ~/.aws/credentials generator for lazy devs
+project homepage: https://blog.ivnilv.com/tools/sacc/
+project source code: https://github.com/ivnilv/sacc/
+ sacc is a tool built out of the necessity to get new AWS session tokens every 36 (maximum) hours.
+The tool will use your AWS access key and secret to request new session token from the AWS Security Token Service (AWS STS).
+Usage:
+Prerequisites:
+ You will need an existing AWS account MFA (Multi-factor authentication) device linked to your account AWS API Access key generated from your account  Requirements:</description>
+    </item>
+    
+    <item>
+      <title>How to Create New Kubernetes User Accounts</title>
+      <link>/posts/how-to-create-new-kubernetes-user-accounts/</link>
+      <pubDate>Mon, 15 Mar 2021 00:26:43 +0200</pubDate>
+      
+      <guid>/posts/how-to-create-new-kubernetes-user-accounts/</guid>
+      <description>Generate new certificate First, we have to generate a private key:
+$ openssl genrsa -out ivnilv.pem and a certificate signing request:
+$ openssl req -new -key ivnilv.pem -out ivnilv.csr -subj &amp;#34;/CN=ivnilv&amp;#34; The common name of the certificate is important, since it defines the username of the new user.
+Signing the certificate The signing request needs to be base64 encoded , before submitting to the Kubernetes API. You can easily encode it using:</description>
+    </item>
+    
+    <item>
+      <title>How to Switch Between Different Backends in Haproxy Using Hatop</title>
+      <link>/posts/how-to-switch-between-different-backends-in-haproxy-with-hatop/</link>
+      <pubDate>Sun, 14 Mar 2021 13:37:34 +0200</pubDate>
+      
+      <guid>/posts/how-to-switch-between-different-backends-in-haproxy-with-hatop/</guid>
+      <description>Let&amp;rsquo;s assume the following setup where we have a HAproxy frontend accepting incoming requests for an app in port 80, and then forwarding those requests to the application&amp;rsquo;s backend servers (nginx web instances).
+This would be useful, for example when you would like to upgrade the version of nginx servers hosting your web application&amp;rsquo;s code to the latest version of nginx with zero downtime !
+Here is the minimal haproxy.cfg configuration file we are going to use for this guide:</description>
+    </item>
+    
+    <item>
+      <title>Using Certbot Letsencrypt With Nginx</title>
+      <link>/posts/using-certbot-letsencrypt-with-nginx/</link>
+      <pubDate>Thu, 11 Mar 2021 16:22:58 +0200</pubDate>
+      
+      <guid>/posts/using-certbot-letsencrypt-with-nginx/</guid>
+      <description>Install CertBot Installing certbot in Ubuntu is pretty straight forward:
+# apt-get install certbot Generate certificate Based on the type of webserver you are using, you need to pass a different parameter to the certbot in order for it to properly configure your virtual host.
+In the case of nginx , it&amp;rsquo;s as simple as:
+# certbot --nginx Next, you&amp;rsquo;ll need to answer a couple of questions which are necessary for the certificate issuance.</description>
+    </item>
+    
+    <item>
+      <title>Rotating Kops Etcd Certificates</title>
+      <link>/posts/rotating-kops-etcd-certificates/</link>
+      <pubDate>Tue, 08 Dec 2020 18:27:01 +0200</pubDate>
+      
+      <guid>/posts/rotating-kops-etcd-certificates/</guid>
+      <description>Check etcd-manager version Using kubectl:
+$ k -n kube-system get pod etcd-manager-main-ip-NODE-IP-ADDRESS -o yaml | grep &amp;#34;image\:&amp;#34; image: kopeio/etcd-manager:3.0.20200429 According to the releases documentation version 3.0.20200428 brings a fix that renews expiring certificates in the cluster.
+However, the implementation of this as noted in github issue #309
+ Not a perfect fix, if you don&amp;rsquo;t restart things every now and then, they could still expire. But it&amp;rsquo;s at least closer and means if you do restart things, it will fix itself.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/about/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

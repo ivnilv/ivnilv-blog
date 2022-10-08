@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>How to Create New Kubernetes User Accounts :: Ivan Iliev&#39;s Blog</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Generate new certificate First, we have to generate a private key:
+$ openssl genrsa -out ivnilv.pem and a certificate signing request:
+$ openssl req -new -key ivnilv.pem -out ivnilv.csr -subj &amp;#34;/CN=ivnilv&amp;#34; The common name of the certificate is important, since it defines the username of the new user.
+Signing the certificate The signing request needs to be base64 encoded , before submitting to the Kubernetes API. You can easily encode it using:" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/how-to-create-new-kubernetes-user-accounts/" />
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-186301477-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+
+
+
+
+
+<link rel="apple-touch-icon" href="/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="/img/favicon/orange.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="How to Create New Kubernetes User Accounts">
+<meta property="og:description" content="Generate new certificate First, we have to generate a private key:
+$ openssl genrsa -out ivnilv.pem and a certificate signing request:
+$ openssl req -new -key ivnilv.pem -out ivnilv.csr -subj &amp;#34;/CN=ivnilv&amp;#34; The common name of the certificate is important, since it defines the username of the new user.
+Signing the certificate The signing request needs to be base64 encoded , before submitting to the Kubernetes API. You can easily encode it using:" />
+<meta property="og:url" content="/posts/how-to-create-new-kubernetes-user-accounts/" />
+<meta property="og:site_name" content="Ivan Iliev&#39;s Blog" />
+
+  <meta property="og:image" content="/images/k8s.png">
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2021-03-15 00:26:43 &#43;0200 EET" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="orange">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    ivnilv@blog:~$ 
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/">Home</a></li>
+        
+      
+        
+          <li><a href="/tags/kubernetes">Kubernetes</a></li>
+        
+      
+        
+          <li><a href="/tags/linux">Linux</a></li>
+        
+      
+        
+          <li><a href="/tags">Tags</a></li>
+        
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">Tools ▾</li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/tools/sacc">sacc</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/">Home</a></li>
+      
+    
+      
+        <li><a href="/tags/kubernetes">Kubernetes</a></li>
+      
+    
+      
+        <li><a href="/tags/linux">Linux</a></li>
+      
+    
+      
+        <li><a href="/tags">Tags</a></li>
+      
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/tools/sacc">sacc</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+
+
+
+<script async src="https://cdn.panelbear.com/analytics.js?site=5IchX3KrIAX"></script>
+<script>
+    window.panelbear = window.panelbear || function() { (window.panelbear.q = window.panelbear.q || []).push(arguments); };
+    panelbear('config', { site: '5IchX3KrIAX' });
+</script>
+<script async src="https://ackee.ivnilv.com/ivnilvackee.js" data-ackee-server="https://ackee.ivnilv.com/" data-ackee-domain-id="cd467ada-5ac4-4479-9898-19bf9ccc0701"></script>
+
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/how-to-create-new-kubernetes-user-accounts/">How to Create New Kubernetes User Accounts</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2021-03-15 
+      </span>
+    
+    
+  </div>
+
+  
+  <span class="post-tags">
+    
+    #<a href="/tags/kubernetes/">kubernetes</a>&nbsp;
+    
+  </span>
+  
+
+  
+    <img src="/images/k8s.png" class="post-cover" alt="How to Create New Kubernetes User Accounts" />
+  
+
+  
+
+  <div class="post-content"><div>
+        <h3 id="generate-new-certificate">Generate new certificate<a href="#generate-new-certificate" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>First, we have to generate a private key:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ openssl genrsa -out ivnilv.pem</code></pre></div>
+<p>and a certificate signing request:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ openssl req -new -key ivnilv.pem -out ivnilv.csr -subj <span style="color:#e6db74">&#34;/CN=ivnilv&#34;</span></code></pre></div>
+<p>The common name of the certificate is important, since it defines the username of the new user.</p>
+<h3 id="signing-the-certificate">Signing the certificate<a href="#signing-the-certificate" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>The signing request needs to be base64 encoded , before submitting to the Kubernetes API. You can easily encode it using:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ cat ivnilv.csr | base64 | tr -d <span style="color:#e6db74">&#39;\n&#39;</span></code></pre></div>
+<p>The signing request has to be signed by Kubernetes CA now.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">apiVersion: certificates.k8s.io/v1beta1
+kind: CertificateSigningRequest
+metadata:
+  name: user-request-ivnilv
+spec:
+  groups:
+  - system:authenticated
+  request: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURSBSRVFVRVNULS0tLS0KTUlJQ1ZUQ0NBVDBDQVFBd0VERU9NQXdHQTFVRUF3d0ZhbUZyZFdJd2dnRWlNQTBHQ1NxR1NJYjNEUUVCQVFVQQpBNElCRHdBd2dnRUtBb0lCQVFDNGxQMTNVZHlBTDZ1QUttTVROeDU5RUtlTE14VkNWSTJVWUhWL2hvYjdpelBGCldRSmxaY1dEWllnL1dIVTJoMFJ3TGNkeWpaVTVHcTFPdS9IMjQxSWpBL3dTMXJSWnc1c0ZrNG8zYWdBZlJ0QngKbzZDc3czS0Q3eEpvdEtpRURzOXFqbUJPNzFwU1kzK3BqdHBZbUpxWmZ5cmV2Y094Wm12NXpSU2NaWUZkb1ZMdwptb0VxeUx0a1hDNzVpeXBGTFg2WjJwK25POFE2NHFtU2VZWHRjNFZBbjZhbjdlUFJFU3k5S09NUURZTHRUZENBClBaTVpDeXV0WnBXQnFqMXZlV3NkaWxweUlyaXdRYWtNQ2tBdURHbUxGbzJhbFk3REV4Z0t0ay8rZlZSaEkyY1YKRUJzVUptaVBuZ1NrMXhKRzZjWjdUZE12UXYxSnIyaGNsc1NDY1IySkFnTUJBQUdnQURBTkJna3Foa2lHOXcwQgpBUXNGQUFPQ0FRRUFiL1BBcVp0eUovUHA2MWtXcG54azNDek9SNTdhT09JSHU3YkVUN1lmcE9GazFSN0JkV3hWClU1RXUrK3pTNVZmQm9XaVNNekV1eENrVHZsNU1CVGxDL3NvQWprT2YzQTI2aUFpeFJibksrUWw0ZGt1MGJQTisKT2syZ3pqTXZyM1hsT1ExZVZnQytjTVZzeXJpZENUMzRwcHVPNm9RTkZnVk1GblZ3bHozdjJnZkVDK3c1RnVndgpOVXcxT21td0c1RTZKN0VpL2ZSTk1scnUyTzZaUlQvMGYyWWpnSUhwT3RONTJYSDhhc3cvMjhMOWt1c1J6aHR5CnFLa0xxWGhkYW4xSDRsR1E2VUwxd1V4UU8zUWhyRnUrbkhFRTV3SVdDNEFra0N4K1NPQ3RpalNmV2Vhb3dkTzcKRG8zaWJvWGNwTzVSUDYvYUhEWE9kV0ZXc2EvQituVG9Vdz09Ci0tLS0tRU5EIENFUlRJRklDQVRFIFJFUVVFU1QtLS0tLQo<span style="color:#f92672">=</span>
+  usages:
+  - digital signature
+  - key encipherment
+  - client auth</code></pre></div>
+<p>and use it to create the resource:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl create -f ivnilv.yaml 
+certificatesigningrequest.certificates.k8s.io/user-request-ivnilv created</code></pre></div>
+<p>The YAML file has to contain base64 encoded version of your signing request (the .csr file).
+But Kubernetes won&rsquo;t sign the new user certificate just like that. They will wait for approval that this certificate can be really signed. That can be done again using kubectl:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl certificate approve user-request-ivnilv
+certificatesigningrequest.certificates.k8s.io/user-request-ivnilv approved
+
+$ kubectl get csr
+NAME                     AGE       REQUESTOR   CONDITION
+user-request-ivnilv   1m        admin       Approved,Issued</code></pre></div>
+<p>Now the certificate should be signed. You can download the new signed public key from the csr resource:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get csr user-request-ivnilv -o jsonpath<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;{.status.certificate}&#39;</span> | base64 -d &gt; ivnilv.crt</code></pre></div>
+<h3 id="create-new-user-config-file">Create new user config file<a href="#create-new-user-config-file" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Now that we have all the files needed for compiling the <code>kubeconfig</code> for our new user, we can issue the following commands (replacing with your own values) to generate a new config file under <code>~/.kube/</code>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl --kubeconfig ~/.kube/config-ivnilv config set-cluster preprod --insecure-skip-tls-verify<span style="color:#f92672">=</span>true --server<span style="color:#f92672">=</span>https://KUBERNETES-API-ADDRESS
+kubectl --kubeconfig ~/.kube/config-ivnilv config set-credentials ivnilv --client-certificate<span style="color:#f92672">=</span>ivnilv.crt --client-key<span style="color:#f92672">=</span>ivnilv.pem --embed-certs<span style="color:#f92672">=</span>true
+kubectl --kubeconfig ~/.kube/config-ivnilv config set-context default --cluster<span style="color:#f92672">=</span>preprod --user<span style="color:#f92672">=</span>ivnilv
+kubectl --kubeconfig ~/.kube/config-ivnilv config use-context default</code></pre></div>
+<p>Let&rsquo;s test if the new <code>kubeconfig</code> we generated worked fine:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl --kubeconfig ~/.kube/config-ivnilv get pods
+No resources found.
+Error from server <span style="color:#f92672">(</span>Forbidden<span style="color:#f92672">)</span>: pods is forbidden: User <span style="color:#e6db74">&#34;ivnilv&#34;</span> cannot list pods in the namespace <span style="color:#e6db74">&#34;default&#34;</span></code></pre></div>
+<p>If you get this forbidden error, then user was created successfully, but we still doesn&rsquo;t have any access rights.</p>
+<p>At this point you are done with this guide and you should continue on the next one for assigning appropriate roles and access rights to the new created user.</p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/posts/installing-phpservermon-on-ubuntu-with-php-nginx-mysql/">
+                <span class="button__icon">←</span>
+                <span class="button__text">Install PHPServerMon on Ubuntu with PHP-FPM, nginx, MySQL</span>
+            </a>
+        </span>
+        
+        
+        <span class="button next">
+            <a href="/posts/how-to-switch-between-different-backends-in-haproxy-with-hatop/">
+                <span class="button__text">How to Switch Between Different Backends in Haproxy Using Hatop</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blog-ivnilv-com" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2022 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
